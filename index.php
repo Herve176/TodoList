@@ -14,17 +14,17 @@
     <th>Date-created</th>
     <th>Action </th>
   </tr>
-  
+  <tr>
   <?php
   $sqlquery1[] = "SELECT id,title,description,date FROM todos";
-    $result=$conn->query($sqlquery1);
+    $result=$connection->query($sqlquery1);
     if($result->num_rows >0){
         while($row=$result->fetch_assoc()){
              echo "<tr><td>" . $row["id"]. "</td><td>" . $row["title"] . "</td><td>"
 . $row["description"]. "</td><td>".$row["date"]."</td></tr>";
   }
     }else{echo"No DATA FOund in database";}
-$conn->close();
+$connection->close();
   ?>
     <td><button>DELETE</button>
     <button onclick="window.location.href = 'add.php';">ADD</button>
