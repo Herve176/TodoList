@@ -1,3 +1,4 @@
+<?php include 'controller.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,4 +36,4 @@ $connection->close();
 </html>
 
 
-<?php include 'controller.php';?>
+
