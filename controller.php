@@ -59,7 +59,7 @@ include 'connection.php';
 
 }elseif ($value == 'delete-property') {
   try {
-      $id = $_POST['id'];
+      $id = $_POST['deleteItem'];
       $connection = DB::getConnection();
       $query = $connection->prepare("DELETE FROM todos WHERE id = :id");
       $query->bindParam(':id', $id, PDO::PARAM_INT); // Bind the ID parameter as an integer
