@@ -38,7 +38,7 @@ include 'controller.php';
             <td><?php echo $row["date"]; ?></td>
 
             <td>
-          <button type="submit" name="deleteItem" value=<?php $row["id"] ?>>DELETE</button>
+          <button type="submit" name="deleteItem" value="<?php echo $row["id"] ?>">DELETE</button>
           <a href="add.php">
             <button>ADD</button>
           </a>
