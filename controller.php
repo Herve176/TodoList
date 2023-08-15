@@ -57,17 +57,17 @@ include 'connection.php';
     echo "Error: " . $e->getMessage();
   }
 
-}elseif($value=='delete-property'){
-  try{
-    $id = $_POST['id'];
-  $connection = DB::getConnection();
-  $query= $connection->prepare("DELETE FROM todos WHERE id='$id'");
-  
-  $query->execute();
-  echo"Data DELETED SUccessfully";
-}catch(PDOException $e){
-  echo"Error: " .$e->getMessage();
-}
+}elseif ($value == 'delete-property') {
+  try {
+      $id = $_POST['id'];
+      $connection = DB::getConnection();
+      $query = $connection->prepare("DELETE FROM todos WHERE id = :id");
+      $query->bindParam(':id', $id, PDO::PARAM_INT); // Bind the ID parameter as an integer
+      $query->execute();
+      echo "Data DELETED Successfully";
+  } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage();
+  }
 }
 
 
