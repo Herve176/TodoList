@@ -1,36 +1,74 @@
-<?php include 'connection.php';
+<?php
+
+include 'connection.php';
 
 
-  // Retrieve and sanitize form data
-  
-  try{
+
+   $value = $_POST['post-action'];
+
+  if ($value=='add-property'){
+  try {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $date=date("Y/m/d");
-    $id='';
+    $date = date("Y/m/d");
+    $id = '';
     // Prepare the SQL query
-    
+    $connection = DB::getConnection();
     $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES(?,?, ?,?)");
-  
+
     // Bind the values to the prepared statement
     $query->bindParam(1, $id);
     $query->bindParam(2, $title);
     $query->bindParam(3, $description);
     $query->bindParam(4, $date);
-  
+
     // Execute the query
     $query->execute();
-  
+
     // Check if the query was successful
     echo "Data inserted successfully";
   } catch (PDOException $e) {
     // Display any errors that occurred
     echo "Error: " . $e->getMessage();
   }
-// Close the database connection (optional, as PDO automatically closes it)
-$connection = null;
+}elseif($value == 'update-property'){
+  try {
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $date = date("Y/m/d");
+    $id = '';
+    // Prepare the SQL query
+    $connection = DB::getConnection();
+    $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES(?,?, ?,?)");
 
-//////////////////////////////////////////////////////
+    // Bind the values to the prepared statement
+    $query->bindParam(1, $id);
+    $query->bindParam(2, $title);
+    $query->bindParam(3, $description);
+    $query->bindParam(4, $date);
+
+    // Execute the query
+    $query->execute();
+
+    // Check if the query was successful
+    echo "Data inserted successfully";
+  } catch (PDOException $e) {
+    // Display any errors that occurred
+    echo "Error: " . $e->getMessage();
+  }
+
+}elseif($value=='delete-property'){
+  try{
+    $id = $_POST['id'];
+  $connection = DB::getConnection();
+  $query= $connection->prepare("DELETE FROM todos WHERE id='$id'");
+  
+  $query->execute();
+  echo"Data DELETED SUccessfully";
+}catch(PDOException $e){
+  echo"Error: " .$e->getMessage();
+}
+}
 
 
 ?>
