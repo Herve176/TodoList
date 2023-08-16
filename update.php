@@ -1,4 +1,4 @@
-<?php include 'controller.php'; ?>
+<?php include 'connection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@
         <label name="description">Description:</label><br>
         <input type="text" id="description"><br>
         <input type="hidden" name="post-action" value="update-property"><br>
-        <input type="submit" value="update">
+        <button type="submit" name="updateItem" value="<?php echo $row["id"] ?>">UPDATE</button>
     </form>
 </body>
 
