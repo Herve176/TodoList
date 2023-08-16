@@ -12,9 +12,8 @@ include 'controller.php';
 </head>
 
 <body>
-  <section>
-    <form action="controller.php" method="POST">
-      <input type="hidden" name="post-action" value="delete-property">
+ 
+    
     <table>
       <tr>
         <th>id</th>
@@ -23,6 +22,9 @@ include 'controller.php';
         <th>Date</th>
         <th>Action</th>
       </tr>
+      <section>
+      <form action="controller.php" method="POST">
+      <input type="hidden" name="post-action" value="delete-property">
 
       <?php
       $sqlquery1 = "SELECT id,title,description,date FROM todos";
@@ -39,10 +41,12 @@ include 'controller.php';
 
             <td>
           <button type="submit" name="deleteItem" value="<?php echo $row["id"] ?>">DELETE</button>
+          </form>
+
           <a href="add.php">
             <button>ADD</button>
           </a>
-          <a href="/run-php-/update.php">
+          <a href="update.php">
             <button>UPDATE</button>
           </a>
         </td>
@@ -51,15 +55,22 @@ include 'controller.php';
         <?php }
       } else { ?>
         <tr>
-          <td colspan="4">No DATA Found in database</td>
+          <td colspan="4">No DATA Found in database</td></form>
+          <td>
+          <a href="add.php">
+            <button>ADD NOte</button>
+          </a>
+          
+        </td>
         </tr>
+         
       <?php }
       ?>
-      
+       
+       
         
-      </form>
     </table>
-  </section>
+    </section>
 </body>
 
 </html>
