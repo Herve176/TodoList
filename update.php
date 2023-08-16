@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="POST">
+    <form action="controller.php" method="POST">
         <label name="title">Note Title:</label><br>
         <input type="text" id="title"><br>
         <label name="description">Description:</label><br>

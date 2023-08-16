@@ -39,7 +39,8 @@ include 'connection.php';
     $id = '';
     // Prepare the SQL query
     $connection = DB::getConnection();
-    $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES(?,?, ?,?)");
+    $query = $connection->prepare("UPDATE todos SET id=?,title=?,description=?,date=? WHERE id= :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT); // Bind the ID parameter as an integer
 
     // Bind the values to the prepared statement
     $query->bindParam(1, $id);
