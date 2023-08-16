@@ -11,12 +11,14 @@
 
 <body>
     <form action="controller.php" method="POST">
-        <label name="title">Note Title:</label><br>
-        <input type="text" id="title"><br>
-        <label name="description">Description:</label><br>
-        <input type="text" id="description"><br>
-        <input type="hidden" name="post-action" value="update-property"><br>
-        <button type="submit" name="updateItem" value="<?php echo $row["id"]?>">UPDATE</button>
+    <input type="hidden" name="post-action" value="update-property"><br>
+    <label for="title">Note Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="id"></label><br>
+    <input type="hidden" name="id" id="id" value="<?php echo $_GET['id']?>"><br>
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description"><br>
+    <input type="submit" value="UPDATE">
     </form>
 </body>
 

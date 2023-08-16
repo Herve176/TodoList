@@ -46,8 +46,8 @@ include 'controller.php';
           <a href="add.php">
             <button>ADD</button>
           </a>
-          <a href="update.php">
-            <button type="submit" name="updateItem" value="<?php echo  $row["id"]?>">UPDATE</button>
+          <a href="update.php?id=<?php echo  $row["id"]?>">
+            <button>UPDATE</button>
           </a>
         </td>
 
