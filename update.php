@@ -16,7 +16,7 @@
         <label name="description">Description:</label><br>
         <input type="text" id="description"><br>
         <input type="hidden" name="post-action" value="update-property"><br>
-        <button type="submit" name="updateItem" value="<?php echo $_GET[$row["id"]] ?>">UPDATE</button>
+        <button type="submit" name="updateItem" value="<?php echo $row["id"]?>">UPDATE</button>
     </form>
 </body>
 
